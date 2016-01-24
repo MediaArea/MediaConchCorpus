@@ -1,0 +1,13 @@
+<div class="col-md-3 col-md-offset-0">
+  <h3><strong>Video #<%= @video.id %></strong></h3>
+    <img src="<%= @video.URL.gsub('.mkv','.gif')  %>">
+</div>
+
+<div class="col-md-8 col-md-offset-0">
+  <ul class="list-group">
+  <% @video.attributes.each do |n, v| %>
+    <li class="list-group-item"><strong><%= n %></strong> <%= v %></a></li>
+  <% end %>
+  </ul>
+</div>
+          
