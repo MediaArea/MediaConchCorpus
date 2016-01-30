@@ -1,15 +1,17 @@
-<div class="col-md-3 col-md-offset-0">
+<div class="col-md-4 col-md-offset-0">
+    <ul class="list-group">
+      <li class="list-group-item"><img src="<%= @gif_url  %>"></li>
+      <% @video.attributes.each do |n, v| %>
+      <% if n == 'URL' %>
+        <li class="list-group-item"><strong><%= n %>: </strong><a href="<%= v %>">download link</a></li>
+      <% else %>
+        <li class="list-group-item"><strong><%= n %>: </strong><%= v %></li>
+        <% end %>
+      <% end %>
+    </ul>
+</div>
+
+<div class="col-md-7 col-md-offset-0">
   <h3><strong>Video #<%= @video.id %></strong></h3>
-    <img src="<%= @gif_url  %>">
+  <iframe src="<%= @embed_url %>" width="640" height="480" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
 </div>
-<div class="col-md-8 col-md-offset-0">
-<iframe src="<%= @embed_url %>" width="640" height="480" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
-
-
-  <ul class="list-group">
-  <% @video.attributes.each do |n, v| %>
-    <li class="list-group-item"><strong><%= n %></strong> <%= v %></a></li>
-  <% end %>
-  </ul>
-</div>
-          
