@@ -1,13 +1,9 @@
 <div class="col-md-3 col-md-offset-0">
   <h3><strong>Video #<%= @video.id %></strong></h3>
-  <% gif_url = @video.URL.gsub(/.mkv|.webm/,'.gif') %>
-    <img src="<%= gif_url  %>">
+    <img src="<%= @gif_url  %>">
 </div>
-<%# http://archive.org/download/Ferquet.Nagi.Attallah/Ferquet.Nagi.Attallah.R12.Ep11.HDTV.720p.ALHARBI.mkv %>
-<%# https://archive.org/embed/Ferquet.Nagi.Attallah %>
 <div class="col-md-8 col-md-offset-0">
-<% embed_url = @video.URL.gsub(/\/download\//,'/embed/').gsub(/([^\/]+$)/,'') %>
-<iframe src="<%= embed_url %>" width="640" height="480" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
+<iframe src="<%= @embed_url %>" width="640" height="480" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
 
 
   <ul class="list-group">

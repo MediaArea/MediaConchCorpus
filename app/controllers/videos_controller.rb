@@ -32,6 +32,8 @@ class VideosController < ApplicationController
 
   def show
     @video = Video.find(params[:id])
+    @gif_url = @video.URL.gsub(/.mkv|.webm/,'.gif')
+    @embed_url = @video.URL.gsub(/\/download\//,'/embed/').gsub(/([^\/]+$)/,'')
   end
 
   def create
