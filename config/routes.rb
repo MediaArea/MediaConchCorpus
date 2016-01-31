@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   resources :videos
 
+  get 'about' => 'videos#about'
+  
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
