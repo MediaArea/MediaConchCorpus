@@ -43,39 +43,23 @@
 
 <div id="videos" class="col-md-8 col-md-offset-0">
   <h3><strong>Results</strong></h3> 
-  <h3>(Page <%= params[:page] || 1  %>) 
+  <h3>Page <%= params[:page] || 1  %> | 
   <% if params[:page] != "1" %> <a href="?page=<%= @previous %>">Previous</a> | <% end %>
   <a href="?page=<%= @next %>">Next</a>
   </h3>
   <table class="table table-striped table-hover">
     <thead>
       <tr>
-        <th>#</th>
+        <th>ID #</th>
         <th>DocType</th>
         <th>DocType
         Version</th>
-        <th>DocType
-        ReadVersion</th>
+        <th>Format</th>
         <th>Duration</th>
         <th>MuxingApp</th>
         <th>WritingApp</th>
-        <th>DateUTC</th>
-        <!-- <th>CRC32</th>
-        <th>Void</th>
-        <th>SeekHead</th>
-        <th>Info</th>
-        <th>Cluster</th>
-        <th>Tracks</th>
-        <th>Cues</th>
-        <th>Attachments</th>
-        <th>Chapters</th>
-        <th>Tags</th>
         <th>CodecID_Video</th>
         <th>CodecID_Audio</th>
-        <th>Format</th>
-        <th>FileSize</th>
-        <th>OverallBitRate</th>
-        <th>URL</th> -->
       </tr>
     </thead>
     <tbody>
@@ -84,27 +68,12 @@
         <td><a href="/videos/<%= row.id  %>"><%=  row.id %></a></td>
         <td><%=  row.DocType %></td>
         <td><%=  row.DocTypeVersion %></td>
-        <td><%=  row.DocTypeReadVersion %></td>
+        <td><%=  row.Format %></td>
         <td><%=  row.Duration %></td>
         <td><%=  row.MuxingApp %></td>
         <td><%=  row.WritingApp %></td>
-        <td><%=  row.DateUTC %></td>
-<!--         <td><%=  row.CRC32_Count %></td>
-        <td><%=  row.Void_Count %></td>
-        <td><%=  row.SeekHead_Count %></td>
-        <td><%=  row.Info_Count %></td>
-        <td><%=  row.Cluster_Count %></td>
-        <td><%=  row.Tracks_Count %></td>
-        <td><%=  row.Cues_Count %></td>
-        <td><%=  row.Attachments_Count %></td>
-        <td><%=  row.Chapters_Count %></td>
-        <td><%=  row.Tags_Count %></td>
         <td><%=  row.CodecID_Video %></td>
         <td><%=  row.CodecID_Audio %></td>
-        <td><%=  row.Format %></td>
-        <td><%=  row.FileSize %></td>
-        <td><%=  row.OverallBitRate %></td>
-        <td><%=  row.URL %></td> -->
       </tr>
       <% end %>
     </tbody>
