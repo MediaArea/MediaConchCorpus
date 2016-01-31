@@ -9,7 +9,7 @@ class VideosController < ApplicationController
       :EBML_CRC_FIRST, :EBML_CRC_VALID, :EBML_CRC_LENGTH, :MKV_SEGMENT_UID_LENGTH, :MKV_VALID_TRACKTYPE_VALUE, 
       :MKV_VALID_BOOLEANS, :MKV_SEEK_RESOLVE]
     @search = Video.search do
-
+      paginate(:page => params[:page] || 1, :per_page => 20)
       fulltext params[:search]
       with( params[:category] ).equal_to( params[:search] ) if params[:category].present?
 
@@ -25,9 +25,10 @@ class VideosController < ApplicationController
         with(str, params[str]) if params[str].present?
       end
 
-      paginate :per_page => 40
     end
     @videos = @search.results
+    @previous = params[:page].to_i - 1
+    @next = params[:page].to_i + 1
   end
 
   def show

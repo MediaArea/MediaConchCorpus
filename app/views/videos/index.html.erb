@@ -1,9 +1,10 @@
 <div id="facets" class="col-md-3 col-md-offset-0">
 <h3>Search/browse the video test corpus</h3>
 
+  <% # I removed URL from this array %>
   <% facet_arr = [:DocType, :Duration, :DocTypeVersion, :DocTypeReadVersion, :CRC32_Count, :Void_Count, :SeekHead_Count, :Info_Count,
       :Cluster_Count, :Tracks_Count, :Cues_Count, :Attachments_Count, :Chapters_Count, :Tags_Count, :MuxingApp, :WritingApp, :DateUTC,
-      :CodecID_Video, :CodecID_Audio, :Format, :FileSize, :OverallBitRate, :URL, :EBML_ELEM_START, :EBML_VER_COH, 
+      :CodecID_Video, :CodecID_Audio, :Format, :FileSize, :OverallBitRate, :EBML_ELEM_START, :EBML_VER_COH, 
       :EBML_DOCVER_COH, :EBML_ELEMENT_VALID_PARENT, :EBML_ELEMENT_NONMULTIPLES, :EBML_ELEMENT_CONTAINS_MANDATES, 
       :EBML_VALID_MAXID, :EBML_VALID_MAXSIZE, :ELEMENTS_WITHIN_MAXIDLENGTH, :ELEMENTS_WITHIN_MAXSIZELENGTH, 
       :EBML_CRC_FIRST, :EBML_CRC_VALID, :EBML_CRC_LENGTH, :MKV_SEGMENT_UID_LENGTH, :MKV_VALID_TRACKTYPE_VALUE, 
@@ -41,7 +42,11 @@
 </div>
 
 <div id="videos" class="col-md-8 col-md-offset-0">
-  <h3><strong>Results</strong></h3>
+  <h3><strong>Results</strong></h3> 
+  <h3>(Page <%= params[:page] || 1  %>) 
+  <% if params[:page] != "1" %> <a href="?page=<%= @previous %>">Previous</a> | <% end %>
+  <a href="?page=<%= @next %>">Next</a>
+  </h3>
   <table class="table table-striped table-hover">
     <thead>
       <tr>
