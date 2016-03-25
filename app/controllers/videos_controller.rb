@@ -1,6 +1,10 @@
 class VideosController < ApplicationController  
 
   def index
+    if params[:search].blank?
+      params[:search] = " "
+      flash[:alert] = "You must enter a search query."
+    end
     facet_arr = [:DocType, :Duration, :DocTypeVersion, :DocTypeReadVersion, :CRC32_Count, :Void_Count, :SeekHead_Count, :Info_Count,
       :Cluster_Count, :Tracks_Count, :Cues_Count, :Attachments_Count, :Chapters_Count, :Tags_Count, :MuxingApp, :WritingApp, :DateUTC,
       :CodecID_Video, :CodecID_Audio, :Format, :FileSize, :OverallBitRate, :URL, :EBML_ELEM_START, :EBML_VER_COH, 

@@ -9,7 +9,9 @@
       :EBML_VALID_MAXID, :EBML_VALID_MAXSIZE, :ELEMENTS_WITHIN_MAXIDLENGTH, :ELEMENTS_WITHIN_MAXSIZELENGTH, 
       :EBML_CRC_FIRST, :EBML_CRC_VALID, :EBML_CRC_LENGTH, :MKV_SEGMENT_UID_LENGTH, :MKV_VALID_TRACKTYPE_VALUE, 
       :MKV_VALID_BOOLEANS, :MKV_SEEK_RESOLVE] %>
-
+<% if flash[:alert] %>
+    <div class="alert"><%= flash[:alert] %></div>
+  <% end %>
 <div class="form-group">
   <span class="input-group">
   <%= form_tag videos_path, :method => :get do %>
