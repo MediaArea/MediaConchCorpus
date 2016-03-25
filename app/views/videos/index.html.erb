@@ -43,9 +43,13 @@
 
 <div id="videos" class="col-md-8 col-md-offset-0">
   <h3><strong>Results</strong></h3> 
-  <h3>Page <%= params[:page] || 1  %> | 
-  <% if params[:page] != "1" %> <a href="?page=<%= @previous %>">Previous</a> | <% end %>
-  <a href="?page=<%= @next %>">Next</a>
+  <h3>Page <%= params[:page] || 1  %> |
+  <% if params[:page].present? && params[:page] != "1" %> <a href="?page=<%= @previous %>">Previous</a> | <% end %>
+  <% if params[:page].present? && params[:page] != "1" %> 
+    <a href="?page=<%= @next %>">Next</a> 
+  <% else %>
+    <a href="?page=<%= @next + 1 %>">Next</a> 
+  <% end %>
   </h3>
   <table class="table table-striped table-hover">
     <thead>
